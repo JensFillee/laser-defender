@@ -33,7 +33,8 @@ public class EnemySpawner : MonoBehaviour
                     GameObject enemy = currentWave.GetEnemyPrefab(i);
                     Vector2 startingPosition = currentWave.GetStartingWaypoint().position;
                     // Quaternion.identity = no rotation
-                    Quaternion rotation = Quaternion.identity;
+                    // Rotate 180° so that tranform.up (green arrow) faces correct direction
+                    Quaternion rotation = Quaternion.Euler(0, 0, 180);
                     // Spawn enemy as child of this gameObeject (enemySpawner)
                     Transform parent = transform;
 

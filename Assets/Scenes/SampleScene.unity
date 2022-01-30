@@ -383,6 +383,10 @@ PrefabInstance:
       propertyPath: firingRate
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: -5565159246359759477, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
+      propertyPath: baseFiringRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
       propertyPath: paddingTop
       value: 5
