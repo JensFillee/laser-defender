@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] bool isLooping = true;
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] float timeBetweenWaves = 0f;
     WaveConfigSO currentWave;
@@ -21,25 +22,31 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemyWaves()
     {
-        foreach (WaveConfigSO wave in waveConfigs)
+        do
         {
-            currentWave = wave;
-
-            for (int i = 0; i < currentWave.GetEnemyCount(); i++)
+            foreach (WaveConfigSO wave in waveConfigs)
             {
-                GameObject enemy = currentWave.GetEnemyPrefab(i);
-                Vector2 startingPosition = currentWave.GetStartingWaypoint().position;
-                // Quaternion.identity = no rotation
-                Quaternion rotation = Quaternion.identity;
-                // Spawn enemy as child of this gameObeject (enemySpawner)
-                Transform parent = transform;
+                currentWave = wave;
 
-                Instantiate(enemy, startingPosition, rotation, parent);
+                for (int i = 0; i < currentWave.GetEnemyCount(); i++)
+                {
+                    GameObject enemy = currentWave.GetEnemyPrefab(i);
+                    Vector2 startingPosition = currentWave.GetStartingWaypoint().position;
+                    // Quaternion.identity = no rotation
+                    Quaternion rotation = Quaternion.identity;
+                    // Spawn enemy as child of this gameObeject (enemySpawner)
+                    Transform parent = transform;
 
-                yield return new WaitForSecondsRealtime(currentWave.GetRandomSpawnTime());
+                    Instantiate(enemy, startingPosition, rotation, parent);
+
+                    yield return new WaitForSecondsRealtime(currentWave.GetRandomSpawnTime());
+                }
+
+                yield return new WaitForSecondsRealtime(timeBetweenWaves);
             }
-
-            yield return new WaitForSecondsRealtime(timeBetweenWaves);
         }
+        while (isLooping);
+
+
     }
 }
