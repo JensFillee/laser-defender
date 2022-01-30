@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnEnemies();
+        StartCoroutine(SpawnEnemies());
     }
 
     public WaveConfigSO getCurrentWave()
@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
         return currentWave;
     }
 
-    void SpawnEnemies()
+    IEnumerator SpawnEnemies()
     {
         for (int i = 0; i < currentWave.GetEnemyCount(); i++)
         {
@@ -28,7 +28,8 @@ public class EnemySpawner : MonoBehaviour
             Transform parent = transform;
 
             Instantiate(enemy, startingPosition, rotation, parent);
-        }
 
+            yield return new WaitForSecondsRealtime(currentWave.GetRandomSpawnTime());
+        }
     }
 }
