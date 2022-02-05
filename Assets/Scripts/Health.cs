@@ -7,6 +7,14 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 50;
     [SerializeField] ParticleSystem hitEffect;
 
+    [SerializeField] bool applyCameraShake;
+    CameraShake cameraShake;
+
+    void Awake()
+    {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // If other = an object with a DamageDealer-component
@@ -15,9 +23,12 @@ public class Health : MonoBehaviour
         {
             // This object takes damage
             TakeDamage(damageDealer.getDamage());
-            
+
             // Play particle effect
             PlayHitEffect();
+
+            // Shake camera
+            ShakeCamera();
 
             // Damage dealer will register hit
             damageDealer.Hit();
@@ -43,6 +54,14 @@ public class Health : MonoBehaviour
             // instance.main.duration = duration of particle system
             // main.startLifetime.constantMax = lifetime of particle system (because we used random between 2 constants)
             Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        }
+    }
+
+    void ShakeCamera()
+    {
+        if (cameraShake != null && applyCameraShake)
+        {
+            this.cameraShake.Play();
         }
     }
 }
