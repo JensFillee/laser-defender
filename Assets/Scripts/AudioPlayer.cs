@@ -28,6 +28,8 @@ public class AudioPlayer : MonoBehaviour
         if (clip != null)
         {
             Vector3 cameraPos = Camera.main.transform.position;
+            // Creates a "One shot audio" object at runtime that has an AudioSource-component (containing the audioclip)
+            // Gets listened to by an Audio Listener (Main camera has an Audio Listener => play it there)
             AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
         }
     }
