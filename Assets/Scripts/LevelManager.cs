@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Could be turned into singleton, but:
+// having multiples in 1 scene doesn't break anything
+// + causes more work because menu-buttons use this
+// => don't bother
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] float gameOverDelay = 2f;
+    ScoreKeeper scoreKeeper;
+
+    void Awake()
+    {
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
 
     public void LoadGame()
     {
+        scoreKeeper.ResetScore();
         SceneManager.LoadScene("Game");
     }
 
