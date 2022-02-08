@@ -74,6 +74,7 @@ public class Shooter : MonoBehaviour
 
             // Play sound effect
             audioPlayer.PlayShootingClip();
+            // audioPlayer.GetInstance().PlayShootingClip();
 
             yield return new WaitForSecondsRealtime(timeToNextProjectile);
         }
