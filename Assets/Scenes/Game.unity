@@ -1331,7 +1331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
       propertyPath: paddingTop
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
       propertyPath: paddingBottom
