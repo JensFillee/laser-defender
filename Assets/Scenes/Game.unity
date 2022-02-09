@@ -243,6 +243,7 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 4e59e749f5aeabb42ab3ab782c62dde1, type: 2}
   - {fileID: 11400000, guid: 37fb857e6c568ea43bedf5af3998c009, type: 2}
+  - {fileID: 11400000, guid: 886bf6a3e66f6c945ab40bdb7d2b7c40, type: 2}
   timeBetweenWaves: 2
 --- !u!4 &441201714
 Transform:
@@ -1325,8 +1326,12 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
       propertyPath: paddingTop
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1973986128, guid: 20748ad4d2dac2744bde64371c60150c, type: 3}
       propertyPath: paddingBottom

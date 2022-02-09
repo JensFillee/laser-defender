@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3079380094487633934}
   - component: {fileID: -4310145026181899687}
   m_Layer: 7
-  m_Name: Enemy 0
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 30
-  scoreReward: 50
+  health: 60
+  scoreReward: 300
   hitEffect: {fileID: 6494014561562569778, guid: 168aab86159594644b05260c3e041847, type: 3}
   applyCameraShake: 0
 --- !u!114 &-3079380094487633934
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e377e2733457baf47b060cce14176612, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72c045d13a864e448bc1f62abba791f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
